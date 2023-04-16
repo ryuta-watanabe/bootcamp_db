@@ -18,7 +18,7 @@ CREATE TABLE settings (
 CREATE TABLE posts (
     id bigint PRIMARY KEY AUTO_INCREMENT,
     user_id bigint NOT NULL,
-    content varchar(140),
+    content varchar(500),
     posted_at datetime NOT NULL,
     CONSTRAINT fk_posts_user_id FOREIGN KEY (user_id) REFERENCES users(id)
 );
@@ -36,7 +36,7 @@ CREATE TABLE comments (
     id bigint PRIMARY KEY AUTO_INCREMENT,
     user_id bigint NOT NULL,
     post_id bigint NOT NULL,
-    content varchar(140) NOT NULL,
+    content varchar(500) NOT NULL,
     commented_at datetime NOT NULL,
     CONSTRAINT fk_comments_user_id FOREIGN KEY (user_id) REFERENCES users(id),
     CONSTRAINT fk_comments_post_id FOREIGN KEY (post_id) REFERENCES posts(id)
